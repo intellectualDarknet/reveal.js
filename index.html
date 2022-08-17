@@ -8,7 +8,8 @@
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/moon.css">
+		<link rel="stylesheet" href="style.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
@@ -16,8 +17,195 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-transition="fade-out">OOP</section>
+
+				<section>
+						Everything in our world is an object and one of the way to write code for 
+						our better understanding is to represent it in the form of objects and their interactions with each other. Conception of writing such a code is called OOP.
+				</section>
+
+				<section>
+					Object-oriented programming (OOP) is a programming paradigm based on the concept of objects, which can contain attributes (properties) and procedures (methods)
+					<p class = "fragment fade-in">Classes are user-defined data types that act as the blueprint for individual objects, attributes and methods.</p>
+					<p class = "fragment fade-in">Objects are instances of a class created with specifically defined data.</p>
+					<p class = "fragment fade-in">Methods are functions that are defined inside a class and describe the behavior of an object.</p>
+
+				</section>
+
+				<section >
+					<p>Encapsulation means containing all important information inside an object, and only exposing selected information to the outside world. Attributes and behaviors are defined by code inside the class. Other objects do not have access to this class or the authority to make changes and they are able only to call public methods or functions.
+					Shortly speaking we divide our fields into 3 groups and according to our architecture use properties (public, private, protected) to limit access for fields from other classes or objects.
+					</p>
+				</section>
+
+				<section >
+					Abstraction is the concept of object-oriented programming that states to show only essential attributes and hide unnecessary information. The main purpose of abstraction is to hide the unnecessary details from the users.The simpliest exaple of the abstraction is button of TV remote control and we don t need to know what exactly happens when we click on the button.
+					Channel changes that is all that we need to know.
+				</section>
+
+				<section>
+					Inheritance is the procedure in which one class inherits the attributes and methods of another class. The class whose properties and methods are inherited is known as the Parent class. And the class that inherits the properties from the parent class is the Child class.
+					The interesting thing is, along with the inherited properties and methods, a child class can have its own properties and methods.
+				</section>
+
+				<section>
+
+					<p class = "fragment"><pre><code data-trim data-noescape>
+						class Animal {
+					
+							public sing() {
+								console.log('Animal sings');
+							}
+						}
+						
+						class Bird extends Animal {
+							public fly() {}
+						
+							public singTheSong() {
+								this.sing();
+								...
+							}
+						}
+					</code></pre></p>
+				</section>
+
+				<section>
+
+					<div class = 'flex'>
+						<div class="over-column">Polymorphism</div>
+						<div class = "upper-column">Universal</div>
+						<div class = "upper-column">ad-hoc(special)</div>
+						<div class = "lower-column">parametric</div>
+						<div class = "lower-column">inclusion</div>
+						<div class = "lower-column">Overloading</div>
+						<div class = "lower-column">Coercion</div>
+					</div>
+					<p class = "definition">Polymorphism refers to a set of different mechanisms that allows us to reuse the same section of the program with different types in different contexts.</p>
+					<p class = "definition">Universal Polymorphism - allows you to describe calculations in a general way, abstracting from what types will be used.</p>
+					<p class = "definition">Specific Polymorphism - redirects to one or more functions for a specific argument type.</p>
+					
+					
+				</section>
+
+				<section>
+					<p><pre><code data-trim data-noescape>function(a) {return a}</code></pre></p>
+
+					<p><pre><code data-trim data-noescape>	
+					class YoungProgramist {
+						public goodCheck() {...}
+					
+						public crossCheck() {
+							this.goodCheck();
+						}
+					}
+					
+					class Student1 extends YoungProgramist {
+						public crossCheck(): void {
+							this.hidename();
+							this.badCheck();
+						}
+					
+						public hideName() {...}
+					
+						public badCheck() {...}
+					}</code></pre></p>
+
+					<p><pre><code data-trim data-noescape>function multiply(value: string, multiplier: number) : string;</code></pre></p>
+					<p><pre><code data-trim data-noescape>function multiply(value: number, multiplier: number) : number;</code></pre></p>
+
+					<p><pre><code data-trim data-noescape>
+						+'42'; toString(); Number(); Boolean(); `some text`;
+						 </code></pre></p>
+				</section>
+
+			
+
+				<section>
+					Interactions between the objects.
+					<p  class = "definition">There are 5 types of Interactions between the object but we'll consider only 4 of them.Inheritance,Composition,Agregation,Assosiation.Inheritance is already known to us.It is time to consider the remaining.</p>
+					
+					
+					
+				</section>
+
+				<section>
+					<p>Composition - relationship between 2 objects in which 1 object cannot exist without the second one.</p>
+					<p class = "fragment"><pre><code data-trim data-noescape>public class Car {
+						// engine is a mandatory part of the car
+						private final Engine engine;
+				 
+						Car() {
+							 engine = new Engine();
+						}
+				 }
+				 
+				 // Engine Object
+				 class Engine {}</code></pre></p>
+				</section>
+
+				<section>
+					Agregation - relation that exists between two or more objects, and each  object has its own individual life cycle.
+					<p><pre><code data-trim data-noescape>var subject = ['Moe','Larry','Curly','Moe','Larry','Curly','Moe','Larry','Curly','Moe','Larry','Curly']
+						var score = [1,6,2,8,2,9,4,5,1,5,2,8]
+						
+						var data = [{
+							x: subject,
+							y: score,
+							transforms: [{
+								groups: subject,
+								aggregations: [
+									{target: 'y', func: 'avg', enabled: true},
+								]
+							}]
+						}]</code></pre></p>
+
+				</section>
+
+				<section>
+					Assosiation - connection between two objects, in which 1 object refers to another or use some field throught it.
+					<p><pre><code>
+						class Salary {
+							constructor(pay, bonus) {
+								this.pay = pay;
+								this.bonus = bonus;
+							}
+						
+							annual_salary() {
+								return (this.pay * 12) + this.bonus;
+							}
+						}
+
+						salary = new Salary(15000, 10000)
+						
+						class Employee {
+							constructor(name, age) {
+								this.name = name;
+								this.age = age;
+								this.salary = null;
+							}
+						
+							call() {
+								salary.annual_salary()
+						}
+						
+					</code></pre></p>
+				</section>
+
+
+				<section>
+					<h3>Prons</h3>
+					<p>It is easy to maintain and modify</p>
+					<p>It maintains the security of data</p>
+					<p>Low-cost development</p>
+
+					<h3>Cons</h3>
+
+					<p>It is not suitable for some sorts of problems</p>
+					<p>It is slower than other programs</p>
+					<p>It takes time to get used to it.</p>
+
+				</section>
+
 			</div>
 		</div>
 
@@ -31,10 +219,14 @@
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
-
+				touch:true,
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
+
+			Reveal.on( 'make-it-pop', () => {
+		  console.log('✨');
+		} );
 		</script>
 	</body>
 </html>
