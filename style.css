@@ -1,0 +1,22 @@
+.flex {
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.over-column {
+  flex: 0 1 100%;
+  outline: 1px solid white;
+}
+
+.upper-column {
+  flex: 0 1 50%;
+  outline: 1px solid white;
+}
+
+.lower-column {
+  flex: 0 1 25%;
+  outline: 1px solid white;
+}
+.definition {
+  text-align: left;
+}
